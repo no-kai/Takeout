@@ -10,6 +10,41 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <nav class="navbar navber-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/"><span>Takeout</span></a>
+          <button class="navbar-brand" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expended="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <% if user_signed_in? %>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              <% else %>
+                <li class="nav-item">
+                  <%= link_to "トップ", root_path %>
+                </li>
+                <li></li>
+                <li></li>
+                <li></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+
+      <main>
+        <p id="notice"><%= notice %></p>
+        <%= yield %>
+      </main>
+    <%= render 'layouts/footer' %>
+
   </body>
 </html>
