@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <h1>ユーザーページ</h1>
+        <h4>
+        <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, fallback:"no-image.jpg", size:'200x150' %>
+        ユーザー名:<b><%= @user.name %></b>
+        </h4>
+    </div>
+
+    <div class="col-md-2 offset-md-1">
+      <%= link_to '新規投稿をする',new_post_path %>
+    </div>
+  </div>
+</div>
