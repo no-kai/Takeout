@@ -1,0 +1,17 @@
+<h1><span>お問い合わせフォーム</span></h1>
+
+<%= form_with model: @inquiry, url: inquirys_path do |f| %>
+
+  <div class="form-group">
+    <%= f.label :email, '返信先メールアドレス' %>
+    <%= f.text_field :email, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :message, 'お問い合わせ内容' %>
+    <%= f.text_area :message, class: 'form-control' %>
+  </div>
+
+  <%= f.submit '送信' %>
+
+<% end %>
