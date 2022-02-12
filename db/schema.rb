@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_11_071827) do
+ActiveRecord::Schema.define(version: 2022_02_12_072108) do
 
   create_table "homes", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2022_02_11_071827) do
 
   create_table "inquiries", force: :cascade do |t|
     t.string "name"
-    t.text "body"
+    t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
