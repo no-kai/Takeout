@@ -9,12 +9,40 @@
       <h4><%= @post.body %></h4>
       <h3>
         <span>
-          投稿者:
-          <%= link_to user_path (@user.id) do %>
-          <%= @user.name %>
-          <% end %>
+          投稿者:<%= @post.user.name %>
         </span>
       </h3>
+      <br>
+
+      <% if @post.favorited_by?(current_user) %>
+        <p>
+          <%= link_to post_favorite_path(@post),method: :delete do %>
+            ★<%= @post.favorites.count %> いいね
+          <% end %>
+        </p>
+        <% else %>
+        <p>
+          <%= link_to post_favorites_path(@post),method: :post do %>
+            ☆<%= @post.favorites.count %> いいね
+          <% end %>
+        </p>
+      <% end %>
+
+      <h3><span>コメント:<%= @post.comments.count %></span></h3>
+      <% @post.comments.each do |comment| %>
+        <%= comment.user.name %>
+        <%= comment.created_at.strftime('%Y/%m/%d')%><%= comment.comment %>
+        <% if comment.user == current_user %>
+        <div>
+          <%= link_to"コメント削除",post_comment_path(comment.post,comment),method: :delete %>
+        </div>
+        <% end %>
+      <% end %>
+
+      <%= form_with(model:[@post,@comment], local: true) do |f| %>
+        <%= f.text_area :comment, rows:'5',placeholder:"コメント"%>
+        <%= f.submit"コメントを投稿"%>
+      <% end %>
     </div>
 
     <div class="col-md-2 offset-md-1">
