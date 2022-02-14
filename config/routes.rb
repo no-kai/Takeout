@@ -2,7 +2,10 @@ Rails.application.routes.draw do
 
   root to: 'homes#top'
   get 'home/about' => 'homes#about'
+  get 'searchs/top'
+  get '/search' => 'searchs#search', as: 'search'
   devise_for :users
+
 
   resources :posts do
     resources :comments, only: [:create,:destroy]
