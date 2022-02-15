@@ -6,6 +6,10 @@
     </div>
     <div class="col-md-2 offset-md-1">
       <%= link_to '新規投稿をする',new_post_path %>
+      <p>ランキング</p>
+      <p><% @all_ranks.each do |post| %></p>
+      <%= post.title %>
+      <% end %>
     </div>
   </div>
 </div>
