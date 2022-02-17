@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-9 p-4">
       <%= link_to post_path (@post.id) do %>
       <%= attachment_image_tag @post, :image, :fill, 100, 100, fallback: "no-image.jpg", size:'600x500'  %>
       <% end %>
@@ -28,8 +28,8 @@
 
     </div>
 
-    <div class="col-md-2 offset-md-1">
-      <%= link_to '新規投稿をする',new_post_path %>
+    <div class="col-md-3 p-5 " >
+      <%= link_to '新規投稿をする',new_post_path, class: "btn btn-info" %>
     </div>
   </div>
 </div>
