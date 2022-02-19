@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: [:new]
 
   def index
     @posts = Post.all
@@ -8,6 +9,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
   end
 
   def create
@@ -25,6 +27,7 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
   end
 
   def update

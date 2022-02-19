@@ -1,4 +1,4 @@
-  <%= form_with(model:[@post,@comment]) do |f| %>
-    <%= f.text_area :comment, rows:'5',placeholder:"コメント"%>
-    <%= f.submit"コメントを投稿"%>
+  <%= form_with(model:[post, comment], remote: true) do |f| %>
+    <%= f.text_area :body,  class: 'form-control' %>
+    <%= f.submit "コメントを投稿"%>
   <% end %>
