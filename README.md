@@ -24,7 +24,10 @@
 テイクアウトした料理の感想を共有したい時や、他のユーザーの投稿した料理の感想を見たい時。
 
 ## 設計書
-<...>
+・アプリケーション詳細設計書
+<https://docs.google.com/spreadsheets/d/1Kd1u-inGQju_sVz-6c9oeZ5lvpMpYuudQyn9Uc0sJTc/edit#gid=1514110433>
+・テーブル定義書
+<https://docs.google.com/spreadsheets/d/13X819Rt5QV757C2RjOcosBmvkKTV_eMTU-dLZRSTWeQ/edit#gid=2066299431>
 
 ## チャレンジ要素一覧
 <https://docs.google.com/spreadsheets/d/1rMW-spOqXZcEaYJkPJ4I3_G1nZzuA1ZcpshgfKFhBag/edit#gid=0>
