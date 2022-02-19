@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-9">
+    <div class="col-9 p-4">
 
       <% if @posts %>
       <div>
@@ -37,41 +37,15 @@
       </div>
 
       <% end %>
+    </div>
 
-      <% if @users %>
-      <div>
-        <h2>ユーザー検索結果</h2>
-
-        <table class="table table-hover">
-          <thead class="thead-dark">
-            <tr>
-              <th></th>
-              <th></th>
-              <th></th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <% @users.each do |user| %>
-            <tr>
-              <td class= col-4>
-                <%= link_to user_path (user.id) do %>
-                <%= attachment_image_tag user, :profile_image, :fill, 50, 50, fallback:"no-image.jpg", size:'80x60' %>
-                <% end %>
-              </td>
-              <td class= col-4>
-                <%= link_to user_path (user.id) do %>
-                <h4><b><%= user.name %></b></h4>
-                <% end %>
-              </td>
-              </td>
-            </tr>
-          <% end %>
-          </tbody>
-        </table>
-      </div>
+    <div class="col-md-3 p-4 text-center">
+      <%= link_to '新規投稿をする',new_post_path, class: "btn btn-info btn-sm btn-block" %>
+      <br><br>
+      <p>👑ランキング👑</p>
+      <p><% @all_ranks.each do |post| %></p>
+      <%= post.title %>
       <% end %>
-
     </div>
   </div>
 </div>
