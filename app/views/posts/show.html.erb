@@ -1,35 +1,36 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-9">
+
+    <div class="col-sm-9 p-4 bg-light">
       <%= link_to post_path (@post.id) do %>
-      <%= attachment_image_tag @post, :image, :fill, 100, 100, fallback: "no-image.jpg", size:'600x500'  %>
+        <%= attachment_image_tag @post, :image, fallback: "no-image.jpg", size:'600x500'  %>
       <% end %>
-      <h1><span><%= @post.title %></span></h1>
-      <h5>コメント</h5>
-      <h4><%= @post.body %></h4>
-      <h3>
-        <span>
-        </span>
-      </h3>
-      <br>
+      <div class="p-4">
+        <h1><span><%= @post.title %></span></h1>
+        <h5>コメント</h5>
+        <h4><%= @post.body %></h4>
+        <h3>
+          <span>
+          </span>
+        </h3>
+        <h4><%= @post.prefectures %></h4>
+        <br>
 
-      <div class="favorites_buttons_<%= @post.id %>">
-        <%= render 'favorites/btn', post: @post %>
+        <div class="favorites_buttons_<%= @post.id %>">
+          <%= render "favorites/favorite", post: @post, favorite: @favorite %>
+        </div>
+
+        <div id="comments_<%= @post.id %>">
+          <%= render 'comments/index', post: @post %>
+        </div>
+        <div>
+          <%= render 'comments/form', post: @post, comment: @comment %>
+        </div>
       </div>
-
-      <div>
-        <%= render 'comments/index', post: @post %>
-      </div>
-
-      <div>
-        <%= render 'comments/form', post: @post, comment: @comment %>
-      </div>
-
-
     </div>
 
-    <div class="col-md-2 offset-md-1">
-      <%= link_to '新規投稿をする',new_post_path %>
+    <div class="col-md-3 p-5 offset-1 " >
+      <%= link_to '新規投稿をする',new_post_path, class: "btn btn-info" %>
     </div>
   </div>
 </div>

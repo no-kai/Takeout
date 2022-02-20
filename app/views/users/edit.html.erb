@@ -1,7 +1,8 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-8">
-    <h2>ユーザー情報編集ページ</h2>
+    <div class="col-md5 text-center">
+      <h2>ユーザー情報編集ページ</h2>
+    </div>
+
     <%= form_with model:@user, local:true do |f| %>
     <%#クラスはbootstrap公式から使いたいもの持ってくる%>
       <div>
@@ -18,5 +19,5 @@
       </div>
     <% end %>
     </div>
-  </div>
+
 </div>

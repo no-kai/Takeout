@@ -1,8 +1,7 @@
-<div class="text-center" >
+<div class="text-right p-1 bg-warning" >
+  <strong>料理を検索</strong>
   <%= form_with url: search_path, method: :get, local: true do |f| %>
-  <%= f.text_field :word %>
-  <%= select_tag "model", options_for_select([["User", "User"],["Post","Post"]]) %>
-  <%= select_tag "search", options_for_select([["完全一致", "perfect"],["前方一致","front"],["後方一致","back"],["部分一致","part"]]) %>
-  <%= f.submit :search %>
+  <%= f.text_field :search %>
+  <%= f.submit :search , class: "btn btn-secondary"  %>
   <% end %>
 </div>

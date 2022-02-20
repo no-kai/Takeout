@@ -1,10 +1,10 @@
-  <h3><span>コメント:<%= @post.comments.count %></span></h3>
-    <% @post.comments.each do |comment| %>
+  <h3><span>コメント:<%= post.comments.count %></span></h3>
+    <% post.comments.each do |comment| %>
       <%= comment.user.name %>
-      <%= comment.created_at.strftime('%Y/%m/%d')%><%= comment.comment %>
+      <%= comment.created_at.strftime('%Y/%m/%d')%><%= comment.body %>
       <% if comment.user == current_user %>
       <div>
-        <%= link_to"コメント削除",post_comment_path(comment.post,comment),method: :delete, remote: true %>
+        <%= link_to"コメント削除",post_comment_path(comment.post, comment), method: :delete, remote: true %>
       </div>
       <% end %>
     <% end %>
