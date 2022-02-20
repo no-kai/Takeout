@@ -31,7 +31,11 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
+<<<<<<< HEAD
   config.action_mailer.raise_delivery_errors = false
+=======
+  config.action_mailer.raise_delivery_errors = true
+>>>>>>> develop
 
   config.action_mailer.perform_caching = false
 
@@ -59,6 +63,15 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+   address:              'smtp.gmail.com',
+   port:                  587,
+   domain:               'gmail.com',
+   user_name:             ENV['INQUIRY_GMAIL'],
+   password:              ENV['INQUIRY_PASSWORD'],
+   authentication:       'plain',
+   enable_starttls_auto:  true
+  }
 
 end

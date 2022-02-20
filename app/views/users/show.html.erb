@@ -3,9 +3,13 @@
     <div class="col-md-9">
       <h1>ユーザーページ</h1>
         <h4>
-        <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, fallback:"no-image.jpg", size:'200x150' %>
+        <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, fallback:"no-image.jpg", size:'180x130' %>
         ユーザー名:<b><%= @user.name %></b>
+        <%= link_to 'ユーザー情報を編集する',edit_user_path, class: "btn btn-info btn-sm" %>
         </h4>
+
+        <h5 class="p-4"><%= @user.name %>さんの投稿</h5>
+        <%= render 'posts/index', posts: @posts %>
     </div>
 
     <div class="col-md-2 offset-md-1">

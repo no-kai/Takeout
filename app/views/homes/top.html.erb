@@ -1,18 +1,38 @@
-<div class="container">
-
-  <div class="row">
-    <div class='mb-5 mx-auto'>
-      <h1>ようこそ</h1>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="p-4 mx-auto">
+        <div class="main-visual d-flex align-items-center justify-content-center">
+          <h3 class="mx-auto my-5 text-center text-dark">
+            Takeout
+          </h3>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-10 p-5 text-center">
+        <h4><strong>新着投稿</strong></h4>
+        <div class="row">
+          <% @posts.each do |post| %>
+            <div class="col-3">
+              <div class="card">
+                <%= link_to post_path(post.id) do %>
+                  <%= attachment_image_tag post, :image, size: "160x130", fallback: "no-image.jpg", class: "card-img-top" %>
+                <% end %>
+                <div class="card-body">
+                  <h6 class="card-title"><strong><%= post.title %></strong></h6>
+                  <p class="card-text"><%= post.body %></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <div class="col-md-12 p-5 text-right">
+            <%= link_to "全ての投稿を見る>>", posts_path, class: "btn btn-info btn-sm btn-block" %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="btn-wrapper col-6 mx-auto">
-    <div class="row">
-      <%= link_to 'ログイン',new_user_session_path, class: "btn btn-primary btn-sm btn-block mb-5 sign_in" %>
-    </div>
-    <div class="row">
-      <%= link_to '新規登録',new_user_registration_path, class: "btn btn-info btn-sm btn-block sign_up" %>
-    </div>
-  </div>
-
-</div>
+</main>

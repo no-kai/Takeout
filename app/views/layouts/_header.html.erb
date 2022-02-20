@@ -1,7 +1,7 @@
   <header>
-    <nav class="navbar navber-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navber-expand-lg navbar-dark bg-danger text-white p-4">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/"><span>Takeout</span></a>
+        <a class="navbar-brand" href="/"><h1><span>Takeout</span></h1></a>
         <button class="navbar-brand" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expended="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -9,21 +9,21 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
-              <li>
-                <%= link_to 'ホーム',user_path(current_user) %>
+              <li class="nav-item">
+                <h4><%= link_to 'ホーム',user_path(current_user), class: 'text-light p-2' %></h4>
               </li>
-              <li>
-                <%= link_to 'ユーザー',users_path %>
+              <li class="nav-item">
+                <h4><%= link_to 'ユーザー一覧',users_path, class: 'text-light p-2' %></h4>
               </li>
-              <li>
-                <%= link_to '投稿一覧',posts_path %>
+              <li class="nav-item">
+                <h4><%= link_to '投稿一覧',posts_path, class: 'text-light p-2' %></h4>
               </li>
-              <li>
-                <%= link_to 'ログアウト',destroy_user_session_path, method: :delete %>
+              <li class="nav-item">
+                <h4><%= link_to 'ログアウト',destroy_user_session_path, method: :delete, class: 'text-light p-2' %></h4>
               </li>
             <% else %>
               <li class="nav-item">
-                <%= link_to "トップ", root_path %>
+                <h4><%= link_to 'トップ', root_path, class: 'text-light p-2' %></h4>
               </li>
               <li></li>
               <li></li>
