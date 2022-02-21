@@ -28,6 +28,7 @@ ja:
         password: "パスワード"
         password_confirmation: "もう一度パスワードを入力してください"
         remember_me: "次回から自動的にログイン"
+        profile_image: "プロフィール画像"
     models:
       user: "ユーザー"
   devise:
