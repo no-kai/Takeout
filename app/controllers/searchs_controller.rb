@@ -1,7 +1,7 @@
 class SearchsController < ApplicationController
 
   def search
-    @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
+    @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
     # 投稿
     # もし検索欄に何も入ってなかったら全部表示する
 		if params[:search] == nil || ""
