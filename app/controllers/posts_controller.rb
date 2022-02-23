@@ -2,9 +2,8 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc).page(params[:page]).per(8)
     @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
-
   end
 
   def new
@@ -15,8 +14,11 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.save
-    redirect_to post_path(@post.id)
+    if @post.save
+      redirect_to post_path(@post.id)
+    else
+      redirect_to new_post_path
+    end
   end
 
   def show
@@ -47,7 +49,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:image,:title,:body)
+    params.require(:post).permit(:image,:title,:body,:prefectures,:shop)
   end
 
 end
