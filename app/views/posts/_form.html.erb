@@ -1,5 +1,5 @@
 <%= form_with model: post, local:true do |f| %>
-  <div class="mx-auto p-4">
+  <div class="col-md-auto mx-auto p-4">
     <h3>画像</h3>
       <br>
       <p>
@@ -10,6 +10,8 @@
         <%= f.text_field :title, size:'60' %>
       <h3>コメント</h3>
         <%= f.text_area :body, size:'60' %>
+      <h3>店名</h3>
+        <%= f.text_field :shop, size:'60' %>
       <h3>店の場所(※任意)</h3>
         <%= f.text_field :prefectures, size:'60' %>
       <p><%= f.submit "投稿する", class: "btn btn-info btn-sm" %></p>
