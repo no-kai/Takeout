@@ -1,19 +1,24 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-9">
-      <h1>ユーザーページ</h1>
-        <h4>
-        <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, fallback:"no-image.jpg", size:'180x130' %>
-        ユーザー名:<b><%= @user.name %></b>
-        <%= link_to 'ユーザー情報を編集する',edit_user_path, class: "btn btn-info btn-sm" %>
+    <div class="col-8 p-4 text-center bg-light ">
+      <h1><b><%= @user.name %></b>さんのページ</h1>
+        <h4 class="p-3">
+          <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, fallback:"no-image.jpg", size:'180x130' %>
         </h4>
+
+        <% if current_user %>
+          <%= link_to 'ユーザー情報を編集する',edit_user_path(@user), class: "btn btn-info btn-sm  fas fa-user-cog edit_user_#{@user.id}" %>
+        <% end %>
+
 
         <h5 class="p-4"><%= @user.name %>さんの投稿</h5>
         <%= render 'posts/index', posts: @posts %>
     </div>
 
-    <div class="col-md-2 offset-md-1">
-      <%= link_to '新規投稿をする',new_post_path %>
+    <div class="col-3 offset-1 p-4 text-center bg-white">
+      <%= link_to '新規投稿をする',new_post_path, class: "btn btn-info btn-sm btn-block" %>
+      <br><br>
+      <%= render "layouts/rank", all_ranks: @all_ranks %>
     </div>
   </div>
 </div>

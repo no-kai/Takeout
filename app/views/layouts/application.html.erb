@@ -12,9 +12,7 @@
   <body>
     <%= render 'layouts/header' %>
     <div class="back_image">
-      <% if user_signed_in? %>
-        <%= render 'searchs/search' %>
-      <% end %>
+      <%= render 'searchs/search' %>
         <p id="notice"><%= notice %></p>
       <%= yield %>
     </div>

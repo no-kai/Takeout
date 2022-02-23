@@ -1,4 +1,4 @@
-<table class="table table-hover">
+<table class="table table-hover ">
   <thead class="thead-dark">
     <tr>
       <th></th>
@@ -10,19 +10,19 @@
   <tbody>
     <% users.each do |user| %>
       <tr>
-        <td class= col-4>
+        <td class= col-3>
           <%= link_to user_path (user.id) do %>
-          <%= attachment_image_tag user, :profile_image, :fill, 50, 50, fallback:"no-image.jpg", size:'80x60' %>
+          <%= attachment_image_tag user, :profile_image, :fill, 50, 50,  fallback:"no-image.jpg", size:'80x60' %>
           <% end %>
         </td>
-        <td class= col-4>
+        <td class= col-6>
           <%= link_to user_path (user.id) do %>
-          <h4><b><%= user.name %></b></h4>
+          <h3><b><%= user.name %></b></h3>
           <% end %>
         </td>
-        <td class= col-4>
+        <td class= col-3>
           <%= link_to user_path (user.id) do %>
-          <h4><b>ユーザー詳細ページ</b></h4>
+          <h4><b>ユーザー詳細</b></h4>
           <% end %>
         </td>
       </tr>
