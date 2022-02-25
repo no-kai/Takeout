@@ -42,4 +42,5 @@
 - IDE：Cloud9
 
 ## 使用素材
-- 使用予定あり、現状どこの素材を使うかはまだ決めていません。
+- https://www.pinterest.jp/
+- https://www.tryout.co.jp/sozaibako/regulation.html
