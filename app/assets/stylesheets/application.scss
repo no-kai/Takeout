@@ -34,3 +34,21 @@
 .search-bg-color {
   background-color:#ffdead;
 }
+
+.main {
+	padding-top: 60px;
+	height: auto;
+}
+
+.footer {
+  margin-top: auto;
+}
+
+.pagination {
+  span{
+      width: 70px;
+      a{
+          display: block;
+      }
+  }
+}
