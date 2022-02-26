@@ -18,7 +18,7 @@
         <td class="col-6">
           <%= link_to post_path (post.id) do %>
             <h3><b><%= post.title %></b></h3>
-            <h5><%= post.shop %></h5>
+            <h5><%= post.shop %>[<%= post.prefectures %>]</h5>
           <% end %>
         </td>
         <td class="col-3">

@@ -4,6 +4,7 @@
       <h1><span>お問い合わせフォーム</span></h1>
 
       <%= form_with model: @inquiry, url: inquirys_path do |f| %>
+        <%= render 'layouts/errors', obj: @inquiry %>
 
         <div class="form-group">
           <%= f.label :email, '返信先メールアドレス' %>

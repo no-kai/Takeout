@@ -1,4 +1,8 @@
+<% if user_signed_in? %>
   <%= form_with(model:[post, comment], remote: true) do |f| %>
     <%= f.text_area :body,  class: 'form-control' %>
-    <%= f.submit "コメントを投稿"%>
+    <btn class="btn-lg">
+      <%= f.submit "投稿する"%>
+    </btn>
   <% end %>
+<% end %>
