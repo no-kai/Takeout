@@ -14,10 +14,11 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+    @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
     if @post.save
       redirect_to post_path(@post.id)
     else
-      redirect_to new_post_path
+      render 'new'
     end
   end
 

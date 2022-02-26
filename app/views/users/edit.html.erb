@@ -1,28 +1,28 @@
 <div class="container">
   <div class="row">
-    <div class="col-8 p-4 text-center bg-light">
+    <div class="col-md-8 p-4 text-center bg-light">
       <h2>ユーザー情報編集</h2>
 
-
-    <%= form_with model:@user, local:true do |f| %>
-    <%#クラスはbootstrap公式から使いたいもの持ってくる%>
-      <div class="p-4">
-        <%= f.label :name %>
-        <%= f.text_field :name, class: "form-control name" %>
-      </div>
-      <div class="p-4">
-        <%= attachment_image_tag @user, :profile_image,fallback:"no-image.jpg", size:'400x300' %>
-      </div>
-      <div><%= f.label :profile_image %></div>
-      <div class="p-4">
-        <%= f.attachment_field :profile_image, class: 'btn btn-secondary' %>
-      </div>
-      <div class="p-4">
-        <%= link_to 'ユーザー情報を更新する', user_path(@user.id), class: "btn btn-info btn-lg" %>
-      </div>
-    <% end %>
+        <%= form_with model:@user, local:true do |f| %>
+          <%= render 'layouts/errors', obj: @user %>
+          <%#クラスはbootstrap公式から使いたいもの持ってくる%>
+          <div class="p-4">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: "form-control name" %>
+          </div>
+          <div class="p-4">
+            <%= attachment_image_tag @user, :profile_image,fallback:"no-image.jpg", size:'400x300' %>
+          </div>
+          <div><%= f.label :profile_image %></div>
+          <div class="p-4">
+            <%= f.attachment_field :profile_image, class: 'btn btn-secondary' %>
+          </div>
+          <div class="p-4">
+            <%= f.submit "ユーザー情報更新", class: "btn btn-info btn-lg" %>
+          </div>
+        <% end %>
     </div>
-    <div class="col-3 offset-1 p-4 text-center bg-white">
+    <div class="col-md-3 offset-1 p-4 text-center bg-white">
       <%= link_to '新規投稿をする',new_post_path, class: "btn btn-info btn-sm btn-block" %>
       <br><br>
       <%= render "layouts/rank", all_ranks: @all_ranks %>

@@ -7,6 +7,8 @@ class Post < ApplicationRecord
 
   validates :title, presence: true
   validates :body, presence: true
+  validates :shop, presence: true
+  validates :prefectures, presence: true
 
 
   def favorited_by?(user)
