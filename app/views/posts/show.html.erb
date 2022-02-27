@@ -6,7 +6,7 @@
       <% end %>
       <div class="">
         <h2 class="p-2">
-          <span>【<%= @post.title %>】
+          <span>【<%= @post.title %>】<br>
           <div class="favorites_buttons_<%= @post.id %>">
             <h3><%= render "favorites/favorite", post: @post, favorite: @favorite %></h3>
           </div>
@@ -24,6 +24,10 @@
             <% end %>】
           </span>
         </h4>
+          <% if @post.user == current_user %>
+            <h5><%= link_to '編集する', edit_post_path(@post), class: "btn btn-secondary" %>
+            <%= link_to '削除する', post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger"%></h5>
+          <% end %>
         <br>
 
         <div id="comments_<%= @post.id %>">
@@ -36,7 +40,7 @@
     </div>
 
     <div class="col-3 offset-1 p-4 text-center bg-white">
-      <%= link_to '新規投稿をする',new_post_path, class: "btn btn-info btn-sm btn-block" %>
+      <%= link_to '新規投稿をする',new_post_path, class: "btn btn-secondary  btn-block" %>
       <br><br>
       <%= render "layouts/rank", all_ranks: @all_ranks %>
     </div>

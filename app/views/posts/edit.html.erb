@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-8 p-4 text-center bg-light">
       <h2>編集ページ</h2>
       <%= render "form", post: @post %>
     </div>
 
-    <div class="col-3 offset-1 p-4 text-center bg-white">
+    <div class="col-md-3 offset-1 p-4 text-center bg-white">
       <%= link_to '新規投稿をする',new_post_path, class: "btn btn-info btn-sm btn-block" %>
       <br><br>
       <%= render "layouts/rank", all_ranks: @all_ranks %>
