@@ -1,0 +1,2 @@
+class PostCategoryRelationsController < ApplicationController
+end
