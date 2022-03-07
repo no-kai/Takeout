@@ -24,6 +24,10 @@
             <% end %>】
           </span>
         </h4>
+        <span>【カテゴリ】</span>
+          <% @post.categories.each do |category| %>
+          <%= category.name %>
+          <% end %>
         <br>
 
         <div id="comments_<%= @post.id %>">
