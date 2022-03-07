@@ -5,9 +5,10 @@
       <%= render "form", post: @post %>
     </div>
 
-    <div class="col-md-3 offset-md-1">
-      ユーザープロフ
-      ランキング
+    <div class="col-3 offset-1 p-4 text-center bg-white">
+      <%= link_to '新規投稿をする',new_post_path, class: "btn btn-info btn-sm btn-block" %>
+      <br><br>
+      <%= render "layouts/rank", all_ranks: @all_ranks %>
     </div>
   </div>
 </div>

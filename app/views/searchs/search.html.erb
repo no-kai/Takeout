@@ -1,8 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-9 p-4">
-
-      <% if @posts %>
+    <div class="col-8 p-4 text-center bg-light ">
       <div>
         <h2>投稿検索結果</h2>
 
@@ -35,17 +33,20 @@
           </tbody>
         </table>
       </div>
-
-      <% end %>
     </div>
 
-    <div class="col-md-3 p-4 text-center">
+    <div class="col-3 offset-1 p-4 text-center bg-white">
       <%= link_to '新規投稿をする',new_post_path, class: "btn btn-info btn-sm btn-block" %>
       <br><br>
-      <p>👑ランキング👑</p>
-      <p><% @all_ranks.each do |post| %></p>
-      <%= post.title %>
-      <% end %>
+      <%= render "layouts/rank", all_ranks: @all_ranks %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-5 mx-auto">
+      <nav aria-label="Page navigation example">
+        <%= paginate @posts %>
+      </nav>
     </div>
   </div>
 </div>

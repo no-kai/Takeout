@@ -1,17 +1,28 @@
 <%= form_with model: post, local:true do |f| %>
-  <div class="mx-auto p-4">
+  <div class="col-md-auto mx-auto p-4">
     <h3>画像</h3>
       <br>
       <p>
-        <%= attachment_image_tag @post, :image, :fill, fallback: "no-image.jpg", size:'400x300'  %></p>
+        <%= attachment_image_tag @post, :image, fallback: "no-image.jpg", width: '80%', height: '80%'  %></p>
       <p>
         <%= f.attachment_field :image %></p>
       <h3>料理名</h3>
-        <%= f.text_field :title, size:'60' %>
+        <%= f.text_field :title, class: "form-control" %>
       <h3>コメント</h3>
-        <%= f.text_area :body, size:'60' %>
-      <h3>店の場所(※任意)</h3>
-        <%= f.text_field :prefectures, size:'60' %>
+        <%= f.text_area :body, class: "form-control" %>
+      <h3>店名</h3>
+        <%= f.text_field :shop, class: "form-control" %>
+      <h3>店の場所</h3>
+        <%= f.text_field :prefectures, class: "form-control"  %>
+      <p>
+        <%= f.label :category, 'カテゴリ' %>
+        <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
+          <%= category.label do %>
+          <%= category.check_box %>
+          <%= category.text %>
+          <% end %>
+        <% end %>
+      </p>
       <p><%= f.submit "投稿する", class: "btn btn-info btn-sm" %></p>
   </div>
 <% end %>

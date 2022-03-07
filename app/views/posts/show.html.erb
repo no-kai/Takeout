@@ -1,24 +1,34 @@
 <div class="container">
   <div class="row">
-
-    <div class="col-sm-9 p-4 bg-light">
+    <div class="col-md-8 p-4 text-center bg-light ">
       <%= link_to post_path (@post.id) do %>
-        <%= attachment_image_tag @post, :image, fallback: "no-image.jpg", size:'600x500'  %>
+        <%= attachment_image_tag @post, :image, fallback: "no-image.jpg", width: '75%', height: '40%'  %>
       <% end %>
-      <div class="p-4">
-        <h1><span><%= @post.title %></span></h1>
-        <h5>コメント</h5>
-        <h4><%= @post.body %></h4>
-        <h3>
-          <span>
+      <div class="">
+        <h2 class="p-2">
+          <span>【<%= @post.title %>】
+          <div class="favorites_buttons_<%= @post.id %>">
+            <h3><%= render "favorites/favorite", post: @post, favorite: @favorite %></h3>
+          </div>
           </span>
-        </h3>
-        <h4><%= @post.prefectures %></h4>
-        <br>
+        </h2>
 
-        <div class="favorites_buttons_<%= @post.id %>">
-          <%= render "favorites/favorite", post: @post, favorite: @favorite %>
-        </div>
+        <h5 class="p-2"><%= @post.body %></h5>
+        <h5 class="p-2">店名:〔<%= @post.shop %>〕</h5>
+        <h5 class="p-2">場所:<%= @post.prefectures %></h5>
+        <h4>
+          <span>
+            【投稿者:
+            <%= link_to user_path (@post.user.id) do %>
+            <%= @post.user.name %>
+            <% end %>】
+          </span>
+        </h4>
+        <span>【カテゴリ】</span>
+          <% @post.categories.each do |category| %>
+          <%= category.name %>
+          <% end %>
+        <br>
 
         <div id="comments_<%= @post.id %>">
           <%= render 'comments/index', post: @post %>
@@ -29,8 +39,10 @@
       </div>
     </div>
 
-    <div class="col-md-3 p-5 offset-1 " >
-      <%= link_to '新規投稿をする',new_post_path, class: "btn btn-info" %>
+    <div class="col-3 offset-1 p-4 text-center bg-white">
+      <%= link_to '新規投稿をする',new_post_path, class: "btn btn-info btn-sm btn-block" %>
+      <br><br>
+      <%= render "layouts/rank", all_ranks: @all_ranks %>
     </div>
   </div>
 </div>

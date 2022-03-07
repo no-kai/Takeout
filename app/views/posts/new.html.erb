@@ -2,16 +2,14 @@
   <div class="row">
     <div class="col-8 p-4 text-center bg-light ">
       <h1>新規投稿フォーム</h1>
+      <%= render 'layouts/errors', obj: @post %>
       <%= render "form", post: @post %>
     </div>
 
     <div class="col-3 offset-1 p-4 text-center bg-white">
       <%= link_to '新規投稿をする',new_post_path, class: "btn btn-info btn-sm btn-block" %>
       <br><br>
-      <p>👑ランキング👑</p>
-      <p><% @all_ranks.each do |post| %></p>
-      <%= post.title %>
-      <% end %>
+      <%= render "layouts/rank", all_ranks: @all_ranks %>
     </div>
   </div>
 </div>
