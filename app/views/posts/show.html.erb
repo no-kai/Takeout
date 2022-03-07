@@ -24,9 +24,14 @@
             <% end %>】
           </span>
         </h4>
+        <span>【カテゴリ】</span>
+          <% @post.categories.each do |category| %>
+          <%= category.name %>
+
           <% if @post.user == current_user %>
             <h5><%= link_to '編集する', edit_post_path(@post), class: "btn btn-secondary" %>
             <%= link_to '削除する', post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger"%></h5>
+
           <% end %>
         <br>
 
