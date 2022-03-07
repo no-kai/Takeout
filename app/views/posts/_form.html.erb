@@ -14,6 +14,15 @@
         <%= f.text_field :shop, class: "form-control" %>
       <h3>店の場所</h3>
         <%= f.text_field :prefectures, class: "form-control"  %>
+      <p>
+        <%= f.label :category, 'カテゴリ' %>
+        <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
+          <%= category.label do %>
+          <%= category.check_box %>
+          <%= category.text %>
+          <% end %>
+        <% end %>
+      </p>
       <p><%= f.submit "投稿する", class: "btn btn-info btn-sm" %></p>
   </div>
 <% end %>
